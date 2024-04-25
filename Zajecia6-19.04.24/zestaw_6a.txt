@@ -1,0 +1,48 @@
+zamówienia:
+- id_produktu
+- nazwa_produktu
+- id_klienta
+- nazwa_klienta
+- data_zamowienia
+- cena_produktu
+- ilość
+- VAT
+- suma_brutto
+- suma_netto
+
+
+ZADANIE 1:
+id_produktu -> nazwa_produktu, cena_produktu, VAT
+id_klienta, data_zamowienia -> nazwa_klienta				//skoro dla danego dnia i klienta jest tylko jedno zamówienie
+id_produktu, data_zamowienia -> ilosc, suma_brutto, suma_netto		//j.w. id i data wskazują na cechy zamówienia
+id_produktu, data_zamowienia -> cena_produktu, VAT			//cena i VAT zależą od rodzaju produktu i od daty (bo stawski zmieniają się w czasie)
+cena_produktu, ilosc, VAT -> suma_brutto, suma_netto
+suma_netto, VAT -> suma_brutto
+
+id_klienta <-> nazwa_klienta ?
+id_produktu <-> nazwa_produktu ?
+
+
+ZADANIE 2:
+id_produktu lub nazwa_produktu + id_klienta lub nazwa_klienta + data_zamowienia
+
+
+pomieszcznia:
+- id_pomieszczenia
+- numer_pomieszczenia
+- id_budynku
+- powierzchnia
+- liczba_okien
+- liczba_drzwi
+- ulica
+- miasto
+- kod_pocztowy
+
+ZADANIE 3:
+id_pomieszczenia -> numer_pomieszczenia, id_budynku, powierzchnia, liczba_okien, liczba_drzwi, ulica, miasto, kod_pocztowy
+numer_pomieszczenia -> id_pomieszczenia, id_budynku, powierzchnia, liczba_okien, liczba_drzwi, ulica, miasto, kod_pocztowy
+kod_pocztowy -> miasto
+
+id_budynku <-> ulica, miasto, kod_pocztowy ?
+
+id_pomieszczenia lub numer_pomieszczenia + id_budynku
