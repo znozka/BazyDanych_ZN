@@ -63,7 +63,6 @@ END
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 
 -- Zadanie 1:
-
 -- Napisz zapytanie, które wykorzystuje transakcjê (zaczyna j¹), a nastêpnie aktualizuje cenê produktu 
 -- o ProductID równym 680 w tabeli Production.Product o 10% i nastêpnie zatwierdza transakcjê.
 BEGIN TRANSACTION;
@@ -88,6 +87,8 @@ END CATCH;
 
 -- Zadanie 2:
 -- Napisz zapytanie, które zaczyna transakcjê, usuwa produkt o ProductID równym 707 z tabeli Production.Product, ale nastêpnie wycofuje transakcjê.
+EXEC sp_msforeachtable "ALTER TABLE ? NOCHECK CONSTRAINT all";
+
 BEGIN TRANSACTION;
 
 BEGIN TRY
@@ -192,6 +193,8 @@ SELECT * FROM Sales.SalesOrderDetail;
 -- Zadanie 7:
 -- Napisz zapytanie SQL, które zaczyna transakcjê i usuwa wszystkie produkty, których StandardCost jest wy¿szy ni¿ œredni koszt wszystkich produktów 
 -- w tabeli Production.Product. Je¿eli liczba produktów do usuniêcia przekracza 10, zapytanie powinno wycofaæ transakcjê.
+EXEC sp_msforeachtable "ALTER TABLE ? NOCHECK CONSTRAINT all";
+
 BEGIN TRANSACTION;
 
 DECLARE @AvgCost MONEY;
